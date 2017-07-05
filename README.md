@@ -6,13 +6,13 @@
 * 只是一个简易版，大部分功能并没有去实现
 
 ## 展示
-![image](https://github.com/ywdlucking/chat/tree/master/src/main/resources/static/images/m1.jpg)
+![image](https://github.com/ywdlucking/chat/blob/master/src/main/resources/static/images/m1.jpg)
 
-![image](https://github.com/ywdlucking/chat/tree/master/src/main/resources/static/images/m2.jpg)
+![image](https://github.com/ywdlucking/chat/blob/master/src/main/resources/static/images/m2.jpg)
 
-![image](https://github.com/ywdlucking/chat/tree/master/src/main/resources/static/images/m3.jpg)
+![image](https://github.com/ywdlucking/chat/blob/master/src/main/resources/static/images/m3.jpg)
 
-![image](https://github.com/ywdlucking/chat/tree/master/src/main/resources/static/images/m4.jpg)
+![image](https://github.com/ywdlucking/chat/blob/master/src/main/resources/static/images/m4.jpg)
 
 ## 打包工具gradle
 ***
