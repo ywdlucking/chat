@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<meta name="viewport" content="with=device-width, initial-scale=1"/>
+<head>
+    <title>Home</title>
+    <link th:href="@{/static/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/static/bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
+    <link th:href="@{/static/css/chat.css}" rel="stylesheet"/>
+</head>
+<body class="container">
+<div id="chat" class="row">
+    <div class="sidebar col-md-3">
+        <div class="m-card">
+            <header>
+                <img class="avatar" th:src="${user.img}" th:alt="${user.name}" width="40" height="40">
+                <p class="name" th:text="${user.name}"></p>
+            </header>
+            <footer>
+                <input class="search" type="text" placeholder="search user...">
+            </footer>
+        </div>
+        <div class="m-list">
+            <span style="display: none" id="chatType"></span>
+            <ul class="">
+                <li class="" onclick="choiceSession(this,'ROOM')">
+                    <img class="avatar" width="30" height="30" alt="聊天室" src="/static/images/g.jpg">
+                    <p class="name" >聊天室</p>
+                </li>
+                <div th:if="${not #lists.isEmpty(listFriend)}">
+                    <li class="" onclick="choiceSession(this, 'CHAT')" th:each="friend:${listFriend}">
+                        <img class="avatar" width="30" height="30" th:alt="${friend.name}" th:src="${friend.img}">
+                        <p class="name" th:text="${friend.name}" ></p>
+                    </li>
+                </div>
+            </ul>
+
+        </div>
+    </div>
+    <div class="main col-md-9">
+        <div class="message">
+            <ul>
+                <li th:if="${msg.context}">
+                    <p class="time">
+                        <span th:text="${msg.time}"></span>
+                    </p>
+                    <div class="">
+                        <img class="avatar" width="30" height="30" th:src="${msg.img}"/>
+                        <p class="msg-text" th:text="${msg.context}"></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="text">
+            <textarea placeholder="按 Ctrl + Enter 发送" id="message-text" v-model="content" onkeyup="sentMsg()" disabled="disabled"></textarea>
+        </div>
+    </div>
+
+</div>
+
+<script th:src="@{/static/js/jquery-3.2.1.js}"></script>
+<script th:src="@{/static/bootstrap/js/bootstrap.js}"></script>
+<script th:src="@{/static/js/sockjs.min.js}"></script>
+<script th:src="@{/static/js/stomp.min.js}"></script>
+<script th:src="@{/static/js/chat.js}"></script>
+
+<div id="output"></div>
+</body>
+</html>
